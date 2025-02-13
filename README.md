@@ -1,31 +1,63 @@
-SunnyHillTech Assignment
+SunnyHillTechAssignment
 
-Overview
+Project Overview
 
-This is a full-stack web application built using Angular 19 for the frontend and .NET 8 for the backend. It features authentication, role-based access control, product management, and a dashboard with analytics.
+This is a full-stack application built with Angular 19 (frontend) and .NET 8 (backend). It includes authentication, product management, and a scalable architecture.
 
-Tech Stack
+Prerequisites
 
-Frontend: Angular 19, Angular Material, NgRx, Bootstrap, ngx-translate
+Before setting up the project, ensure you have the following dependencies installed:
 
-Backend: .NET 8, ASP.NET Core, Entity Framework Core, SQL Server
+Backend Requirements
 
-Authentication: JWT-based authentication with role-based access (Admin, StandardUser)
+.NET SDK 8.0.x (Download from here)
 
-State Management: NgRx Store
+Entity Framework Core Tools 8.0.x (Install with dotnet tool install --global dotnet-ef)
 
-Database: SQL Server with EF Core migrations
+SQL Server 2019+ (or Azure SQL for cloud deployment)
 
-Installation & Setup
+Frontend Requirements
 
-Backend (.NET 8 API)
+Node.js 18.x (LTS recommended) Download Node.js
 
-Install required dependencies:
+Angular CLI 19.x (Install using npm install -g @angular/cli)
+
+Folder Structure
+
+SunnyHillTechAssignment/
+│── back-end/           # .NET 8 API Solution
+│   ├── Controllers/    # API Controllers
+│   ├── Services/       # Business logic services
+│   ├── Repositories/   # Repository pattern for data access
+│   ├── Models/        # Entity models
+│   ├── Migrations/     # EF Core Migrations
+│   ├── appsettings.json # Environment configuration
+│
+│── client/             # Angular 19 Frontend
+│   ├── src/
+│   ├── app/
+│   ├── components/     # UI components
+│   ├── services/       # API integration services
+│   ├── store/          # NgRx state management
+│   ├── assets/         # Static assets
+
+Installation and Setup
+
+Backend Setup
+
+Navigate to the backend folder:
 
 cd back-end
+
+Restore dependencies:
+
 dotnet restore
 
-Set up the database and apply migrations:
+Configure the database:
+
+Update appsettings.json with your SQL Server connection string.
+
+Apply migrations and seed roles:
 
 dotnet ef database update
 
@@ -33,71 +65,65 @@ Run the API:
 
 dotnet run
 
-Frontend (Angular 19)
+Frontend Setup
+
+Navigate to the client folder:
+
+cd client
 
 Install dependencies:
 
-cd client
 npm install
 
-Run the frontend application:
+Start the development server:
 
 ng serve
 
-Environment Variables Setup
+Environment Variables
 
-Backend (appsettings.json)
+Backend (.NET 8)
 
-Modify back-end/appsettings.json to configure JWT and database:
+Create an appsettings.Development.json file in back-end/ with:
 
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=SunnyHillDB;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
+    "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DB;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
   },
-  "Jwt": {
-    "Issuer": "https://yourdomain.com",
-    "Audience": "https://yourdomain.com",
-    "Key": "YOUR_SECRET_KEY",
-    "TokenExpiryInMinutes": 60
+  "JwtSettings": {
+    "Key": "YourSuperSecretKey",
+    "Issuer": "YourIssuer",
+    "Audience": "YourAudience"
   }
 }
 
-Frontend (environment.ts)
+Frontend (Angular 19)
 
-Modify client/src/environments/environment.ts:
+Create an .env file in client/ with:
 
-export const environment = {
-  production: false,
-  apiBaseUrl: 'http://localhost:5000/api',
-};
+API_URL=http://localhost:5000/api
+JWT_SECRET=YourFrontendSecret
 
 API Documentation
 
-Swagger UI: http://localhost:5000/swagger
+Swagger is available at: http://localhost:5000/swagger
 
-Postman Collection: [Provide Link Here]
+A Postman collection is also available in the repository.
 
-Authentication & User Roles
+Running Tests
 
-Admin: Full access to product management & user actions
+Backend tests: dotnet test
 
-StandardUser: Read-only access to products
+Frontend tests: ng test
 
 Deployment
 
-Backend: Deploy to Azure/AWS with dotnet publish
+CI/CD is configured using GitHub Actions.
 
-Frontend: Deploy to Firebase, Netlify, or an Nginx server
+Ensure proper .env variables for production settings.
 
-Common Issues & Troubleshooting
+Contributors
 
-Database not found?
-
-Ensure SQL Server is running and credentials are correct in appsettings.json.
-
-Frontend not connecting to API?
-
-Check environment.ts API base URL and CORS settings in the backend.
+Kastriot Selmani
 
 License
 
