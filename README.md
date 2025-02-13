@@ -22,25 +22,6 @@ Node.js 18.x (LTS recommended) Download Node.js
 
 Angular CLI 19.x (Install using npm install -g @angular/cli)
 
-Folder Structure
-
-SunnyHillTechAssignment/
-│── back-end/           # .NET 8 API Solution
-│   ├── Controllers/    # API Controllers
-│   ├── Services/       # Business logic services
-│   ├── Repositories/   # Repository pattern for data access
-│   ├── Models/        # Entity models
-│   ├── Migrations/     # EF Core Migrations
-│   ├── appsettings.json # Environment configuration
-│
-│── client/             # Angular 19 Frontend
-│   ├── src/
-│   ├── app/
-│   ├── components/     # UI components
-│   ├── services/       # API integration services
-│   ├── store/          # NgRx state management
-│   ├── assets/         # Static assets
-
 Installation and Setup
 
 Backend Setup
