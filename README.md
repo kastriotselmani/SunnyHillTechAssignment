@@ -32,7 +32,7 @@ SunnyHillTechAssignment/
 │-- client/              # Angular 19 Frontend
 │   ├── src/
 │   │   ├── app/
-│   │   │   ├── components/  # UI Components
+│   │   │   ├── feautes/  # UI Components
 │   │   │   ├── services/    # API Services
 │   │   │   ├── store/       # NgRx State Management
 │   │   ├── assets/
