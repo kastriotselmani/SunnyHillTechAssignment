@@ -16,28 +16,6 @@ State Management: NgRx Store
 
 Database: SQL Server with EF Core migrations
 
-CI/CD: GitHub Actions
-
-Folder Structure
-
-SunnyHillTechAssignment/
-│-- back-end/             # .NET 8 API Solution
-│   ├── Controllers/      # API Controllers
-│   ├── Models/          # Entity Models
-│   ├── Repositories/    # Repository Pattern Implementation
-│   ├── Services/        # Business Logic Services
-│   ├── Migrations/      # EF Core Migrations
-│   ├── appsettings.json # Configuration File
-│
-│-- client/              # Angular 19 Frontend
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── feautes/  # UI Components
-│   │   │   ├── services/    # API Services
-│   │   │   ├── store/       # NgRx State Management
-│   │   ├── assets/
-│   │   ├── environments/
-
 Installation & Setup
 
 Backend (.NET 8 API)
