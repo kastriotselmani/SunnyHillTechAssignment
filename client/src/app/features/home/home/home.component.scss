@@ -1,0 +1,74 @@
+.home-container {
+  padding: 20px;
+}
+
+.welcome-banner {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-links {
+  margin-top: 15px;
+}
+
+.dashboard-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dashboard-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center; /* Center content vertically */
+
+}
+
+.dashboard-card {
+  display: flex;
+  min-width:max-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  text-align: center;
+  width: 500px;
+}
+
+mat-icon {
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+mat-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Center the mat-progress-bar inside the card */
+mat-progress-bar {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px; /* Adjust this height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px; /* Adjust spacing */
+}

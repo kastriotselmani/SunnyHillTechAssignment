@@ -1,0 +1,104 @@
+.login-page {
+  display: flex;
+  min-height: 100vh;
+
+  .login-left {
+    flex-basis: 50%;
+    background: #f0f4f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    ng-lottie {
+      max-width: 90%;
+      height: auto;
+    }
+  }
+
+  .login-right {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    padding: 20px;
+
+    .login-form-container {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      .full-width {
+        width: 100%;
+      }
+
+      .login-links {
+        margin-top: 15px;
+
+        a {
+          text-decoration: none;
+          color: #3f51b5;
+        }
+      }
+    }
+  }
+
+  .custom-auth-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(45deg, #ff4081, #ff79b0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: linear-gradient(45deg, #ff79b0, #ff4081);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &:disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    .btn-icon {
+      font-size: 20px;
+    }
+  }
+
+  // 🔹 Mobile & Small Screens Fix
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    .login-left {
+      flex-basis: auto;
+      width: 100%;
+      padding: 10px;
+    }
+
+    .login-right {
+      flex-basis: auto;
+      width: 100%;
+      padding: 10px;
+    }
+
+    ng-lottie {
+      max-width: 70%;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<div class="login-page">
+  <div class="login-left">
+    <ng-lottie width="600px" height="500px" containerClass="moving-box another-class" [options]="options"
+      (animationCreated)="animationCreated($event)">
+    </ng-lottie>
+  </div>
+
+  <div class="login-right">
+    <div class="login-form-container">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="Enter your email" />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is required.
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Enter a valid email.
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" placeholder="Enter your password" />
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
+        <button mat-raised-button class="custom-auth-btn" type="submit" [disabled]="loginForm.invalid">
+          Login
+        </button>
+
+
+      </form>
+
+      <div class="login-links">
+        <a routerLink="/auth/register">Register</a> |
+        <a routerLink="/auth/forgot-password">Forgot Password?</a>
+      </div>
+    </div>
+  </div>
+</div>

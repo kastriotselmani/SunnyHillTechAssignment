@@ -1,0 +1,34 @@
+<div class="page-wrapper">
+  
+  <header class="header px-3 d-flex justify-content-between align-items-center">
+    <div class="logo">
+      <img src="assets/logo/sunnyhilltech.jpeg" alt="Sunny Hill Tech" style="height: 50px;">
+    </div>
+
+    <div class="d-flex align-items-center">
+      <div class="language-switcher me-3">
+        <button class="btn btn-link p-0" (click)="translate.use('en')">
+          <img src="assets/flags/en.svg" alt="English Flag" style="height: 20px;">
+        </button>
+        <button class="btn btn-link p-0" (click)="translate.use('de')">
+          <img src="assets/flags/de.svg" alt="German Flag" style="height: 20px;">
+        </button>
+      </div>
+
+      <div class="logout-container" *ngIf="isLoggedIn">
+        <button class="btn btn-outline-danger" (click)="onLogout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="banner text-center my-4">
+      <h1>{{ 'WELCOME' | translate }}</h1>
+    </section>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer text-center py-3 mt-4 border-top">
+    &copy; 2025 MyApp. All rights reserved.
+  </footer>
+</div>

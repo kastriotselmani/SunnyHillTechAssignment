@@ -1,0 +1,48 @@
+<div class="home-container">
+  <div class="welcome-banner mat-elevation-z2">
+    <h1>{{ getWelcomeMessage() }}</h1>
+    <div class="dashboard-links">
+      <a mat-button color="primary" routerLink="/products">
+        <mat-icon>store</mat-icon> Manage Products
+      </a>
+      <a mat-button color="accent" routerLink="/profile">
+        <mat-icon>person</mat-icon> My Profile
+      </a>
+    </div>
+  </div>
+
+  <div class="dashboard-grid">
+    <mat-card class="dashboard-card">
+      <mat-card-title>Product Categories</mat-card-title>
+      <mat-card-content>
+        <div *ngIf="loading; else chartContent">
+          <mat-spinner></mat-spinner>
+        </div>
+        <ng-template #chartContent>
+          <ngx-charts-bar-vertical
+            [results]="productData"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            xAxisLabel="Category"
+            yAxisLabel="Count"
+            [scheme]="'cool'"
+            [gradient]="true">
+          </ngx-charts-bar-vertical>
+        </ng-template>
+      </mat-card-content>
+    </mat-card>
+  
+    <mat-card class="dashboard-card">
+      <mat-card-title>Active Users</mat-card-title>
+      <mat-icon matBadge="{{ activeUsers }}" matBadgeColor="warn">group</mat-icon>
+    </mat-card>
+  
+    <mat-card class="dashboard-card">
+      <mat-card-title>Total Sales</mat-card-title>
+      <h2>{{ totalSales | currency }}</h2>
+      <mat-progress-bar mode="determinate" [value]="salesProgress"></mat-progress-bar>
+    </mat-card>
+  </div>

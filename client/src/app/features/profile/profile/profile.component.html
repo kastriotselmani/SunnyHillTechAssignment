@@ -1,0 +1,77 @@
+<div class="profile-container">
+  <h2>User Profile</h2>
+
+  <!-- Show error message if user data is missing -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Ensure user is defined before displaying data -->
+  <div *ngIf="user; else loading">
+    <div class="user-info">
+      <p><strong>Name:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Role:</strong> {{ user.role }}</p>
+      <p><strong>Last Login:</strong> {{ user.lastLogin | date:'medium' }}</p>
+    </div>
+
+    <div *ngIf="successMessage" class="alert alert-success">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="profileForm.get('email')?.hasError('email')">
+          Enter a valid email.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="password-update">
+        <h3>Change Password (Optional)</h3>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Current Password</mat-label>
+          <input matInput type="password" formControlName="currentPassword">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>New Password</mat-label>
+          <input matInput type="password" formControlName="newPassword">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Confirm New Password</mat-label>
+          <input matInput type="password" formControlName="confirmPassword">
+          <mat-error *ngIf="profileForm.hasError('mismatch')">
+            New password and confirmation do not match.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">
+        Update Profile
+      </button>
+    </form>
+  </div>
+
+  <!-- Loading Placeholder -->
+  <ng-template #loading>
+    <p>Loading user profile...</p>
+  </ng-template>
+</div>
