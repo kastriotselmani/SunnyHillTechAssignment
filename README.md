@@ -1,112 +1,108 @@
-SunnyHillTechAssignment
+# SunnyHillTechAssignment
 
-Project Overview
+## Project Overview
+This is a full-stack application built with **Angular 19** (frontend) and **.NET 8** (backend).  
+It includes authentication, product management, and a scalable architecture.
 
-This is a full-stack application built with Angular 19 (frontend) and .NET 8 (backend). It includes authentication, product management, and a scalable architecture.
+---
 
-Prerequisites
-
+## Prerequisites
 Before setting up the project, ensure you have the following dependencies installed:
 
-Backend Requirements
+### Backend Requirements
+- **.NET SDK 8.0.x**
+- **Entity Framework Core Tools 8.0.x** (Install with:)  
+  ```
+  dotnet tool install --global dotnet-ef
+  ```
+- **SQL Server 2019+** (or Azure SQL for cloud deployment)
 
-.NET SDK 8.0.x (Download from here)
+### Frontend Requirements
+- **Node.js 18.x** (LTS recommended)
+- **Angular CLI 19.x** (Install using npm:)  
+  ```
+  npm install -g @angular/cli
+  ```
 
-Entity Framework Core Tools 8.0.x (Install with dotnet tool install --global dotnet-ef)
+---
 
-SQL Server 2019+ (or Azure SQL for cloud deployment)
+## Installation and Setup
 
-Frontend Requirements
+### Backend Setup
+1. Navigate to the backend folder:  
+   ```
+   cd back-end
+   ```
+2. Restore dependencies:  
+   ```
+   dotnet restore
+   ```
+3. Configure the database: 
+  ``` 
+  Update `appsettings.json` with your SQL Server connection string.
+  ```
+4. Apply migrations and seed roles:  
+   ```
+   dotnet ef database update
+   ```
 
-Node.js 18.x (LTS recommended) Download Node.js
+### Frontend Setup
+1. Navigate to the client folder:  
+   ```
+   cd client
+   ```
+2. Install dependencies:  
+   ```
+   npm install
+   ```
+3. Start the frontend:  
+   ```
+   ng serve
+   ```
+4 . Open the application in your browser:
+  ```
+  Frontend URL: http://localhost:4200
+  Backend API URL: http://localhost:5000/api
+  ````
+---
 
-Angular CLI 19.x (Install using npm install -g @angular/cli)
+## Folder Structure
+```
+SunnyHillTechAssignment/
+│── back-end/   # .NET 8 API Solution
+│   ├── Controllers/     # Handles API requests and responses
+│   ├── Models/          # Database models and DTOs
+│   ├── Repositories/    # Implements Repository Pattern for database access
+│   ├── Services/        # Business logic and service layer
+│   ├── Migrations/      # EF Core database migrations
+│   ├── appsettings.json # Configuration file (database, JWT, etc.)
+│── client/    # Angular 19 Frontend
+│   ├── src/
+│   │   ├── app/          # Main Angular application logic (components, services, etc.)
+│   │   ├── assets/       # Static assets (images, icons, etc.)
+│   │   ├── environments/ # Environment-specific settings (dev/prod)
+│── README.md  # Project documentation
+```
 
-Installation and Setup
+---
 
-Backend Setup
+## Environment Variables
 
-Navigate to the backend folder:
-
-cd back-end
-
-Restore dependencies:
-
-dotnet restore
-
-Configure the database:
-
-Update appsettings.json with your SQL Server connection string.
-
-Apply migrations and seed roles:
-
-dotnet ef database update
-
-Run the API:
-
-dotnet run
-
-Frontend Setup
-
-Navigate to the client folder:
-
-cd client
-
-Install dependencies:
-
-npm install
-
-Start the development server:
-
-ng serve
-
-Environment Variables
-
-Backend (.NET 8)
-
-Create an appsettings.Development.json file in back-end/ with:
-
+### Backend (`appsettings.json`):
+```json
 {
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=YOUR_SERVER;Database=YOUR_DB;User Id=YOUR_USER;Password=YOUR_PASSWORD;"
-  },
   "JwtSettings": {
-    "Key": "YourSuperSecretKey",
-    "Issuer": "YourIssuer",
-    "Audience": "YourAudience"
+    "Secret": "your-secret-key",
+    "Issuer": "your-issuer",
+    "Audience": "your-audience",
+    "ExpiryInMinutes": 60
   }
 }
+```
 
-Frontend (Angular 19)
+### Frontend (`.env`):
+```env
+API_BASE_URL=http://localhost:5000/api
+```
 
-Create an .env file in client/ with:
-
-API_URL=http://localhost:5000/api
-JWT_SECRET=YourFrontendSecret
-
-API Documentation
-
-Swagger is available at: http://localhost:5000/swagger
-
-A Postman collection is also available in the repository.
-
-Running Tests
-
-Backend tests: dotnet test
-
-Frontend tests: ng test
-
-Deployment
-
-CI/CD is configured using GitHub Actions.
-
-Ensure proper .env variables for production settings.
-
-Contributors
-
-Kastriot Selmani
-
-License
-
-MIT License
-
+---
