@@ -1,5 +1,3 @@
-# SunnyHillTechAssignment
-
 ## Project Overview
 This is a full-stack application built with **Angular 19** (frontend) and **.NET 8** (backend).  
 It includes authentication, product management, and a scalable architecture.
